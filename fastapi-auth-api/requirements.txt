@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+cryptography
+pydantic
+alembic
+python-jose
+pymysql
+pydantic[email]
+sqlalchemy
