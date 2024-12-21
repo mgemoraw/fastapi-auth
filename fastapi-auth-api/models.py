@@ -1,7 +1,8 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship, Mapped, mapped_column
+from sqlalchemy.orm import declarative_base, relationship, Mapped, mapped_column
 
-from database import Base, engine
+from database import engine
+Base = declarative_base()
 
 
 class User(Base):
@@ -9,7 +10,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique=True, index=True)
-    email = Column(String(50), unique=True, index=True)
+    # email = Column(String(50), unique=True, index=True)
     hashed_password = Column(String) #, unique=True, index=True)
 
     posts = relationship('Post', back_populates='user')
